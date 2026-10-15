@@ -40,6 +40,16 @@ def get_episode_filename(download_link: str) -> str | None:
     return None
 
 
+def is_file_complete(file_path: Path, expected_size: int | None) -> bool:
+    """Check whether an existing file matches the expected download size."""
+    return (
+        expected_size is not None
+        and expected_size > 0
+        and file_path.is_file()
+        and file_path.stat().st_size == expected_size
+    )
+
+
 def get_chunk_size(file_size: int) -> int:
     """Determine the optimal chunk size based on the file size."""
     for threshold, chunk_size in THRESHOLDS:
@@ -65,8 +75,9 @@ def save_file_with_progress(
             if chunk:
                 file.write(chunk)
                 total_downloaded += len(chunk)
-                progress_percentage = (total_downloaded / file_size) * 100
-                job_progress.update(task, completed=progress_percentage)
+                if file_size > 0:
+                    progress_percentage = (total_downloaded / file_size) * 100
+                    job_progress.update(task, completed=progress_percentage)
 
     job_progress.update(task, completed=100, visible=False)
     job_progress.advance(overall_task)

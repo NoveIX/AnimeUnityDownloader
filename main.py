@@ -25,14 +25,23 @@ async def process_urls(urls: list[str], custom_path: str | None = None) -> None:
         await process_anime_download(url, custom_path=custom_path)
 
 
+def parse_urls(lines: list[str]) -> list[str]:
+    """Parse URLs, ignoring blank lines and comments introduced by '#'."""
+    urls = []
+    for line in lines:
+        url = line.partition("#")[0].strip()
+        if url:
+            urls.append(url)
+    return urls
+
+
 async def main() -> None:
     """Run the script."""
     # Clear terminal and parse arguments
     clear_terminal()
     args = parse_arguments(common_only=True)
 
-    # Read and process URLs, ignoring empty lines
-    urls = [url.strip() for url in read_file(URLS_FILE) if url.strip()]
+    urls = parse_urls(read_file(URLS_FILE))
     await process_urls(urls, custom_path=args.custom_path)
 
     # Clear URLs file
@@ -40,4 +49,7 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\nDownload interrupted by the user")

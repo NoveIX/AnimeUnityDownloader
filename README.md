@@ -2,14 +2,14 @@
 
 > A Python-based tool for downloading anime series from AnimeUnity, featuring progress tracking for each episode. It efficiently extracts video URLs and manages downloads.
 
-![Demo](https://github.com/Lysagxra/AnimeUnityDownloader/blob/8e274bdfb71f8fc714fa02322ec2b3eda61cce53/assets/demo.png)
+![Demo](https://github.com/NoveIX/AnimeUnityDownloader/blob/29265a3d5dfa3d8b33007b508ee57b32a3eea890/assets/demo.png)
 
 ## Features
 
 - Downloads multiple episodes concurrently.
-- Supports [batch downloading](https://github.com/Lysagxra/AnimeUnityDownloader?tab=readme-ov-file#batch-download) via a list of URLs.
-- Supports downloading a [specified range of episodes](https://github.com/Lysagxra/AnimeUnityDownloader?tab=readme-ov-file#single-anime-download).
-- Supports [custom download location](https://github.com/Lysagxra/AnimeUnityDownloader/tree/main?tab=readme-ov-file#file-download-location).
+- Supports [batch downloading](https://github.com/NoveIX/AnimeUnityDownloader?tab=readme-ov-file#batch-download) via a list of URLs.
+- Supports downloading a [specified range of episodes](https://github.com/NoveIX/AnimeUnityDownloader?tab=readme-ov-file#single-anime-download).
+- Supports [custom download location](https://github.com/NoveIX/AnimeUnityDownloader/tree/main?tab=readme-ov-file#file-download-location).
 - Tracks download progress with a progress bar.
 - Automatically creates a directory structure for organized storage.
 
@@ -49,7 +49,7 @@ project-root/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Lysagxra/AnimeUnityDownloader.git
+git clone https://github.com/NoveIX/AnimeUnityDownloader.git
 ```
 
 2. Navigate to the project directory:
@@ -123,12 +123,17 @@ This is useful when you already have some episodes and only need to download the
 - Example of `URLs.txt`:
 
 ```
+# Comment lines start with # and are ignored
 https://www.animeunity.so/anime/1517-yuru-yuri
-https://www.animeunity.so/anime/3871-chainsaw-man
+https://www.animeunity.so/anime/3871-chainsaw-man # optional inline comment
 https://www.animeunity.so/anime/2598-made-in-abyss
 ```
 
 - Ensure that each URL is on its own line without any extra spaces.
+- Blank lines and text after `#` are ignored.
+- Existing episode files are skipped when their size matches the server's `Content-Length`;
+  files that do not match, or whose size cannot be verified, are downloaded again.
+- Press `Ctrl+C` to stop the download.
 - You can add as many URLs as you need, following the same format.
 
 2. Run the main script via the command line:

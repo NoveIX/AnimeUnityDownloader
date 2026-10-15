@@ -24,6 +24,7 @@ from src.crawler.crawler import Crawler
 from src.crawler.crawler_utils import extract_download_link
 from src.download_utils import (
     get_episode_filename,
+    is_file_complete,
     run_in_parallel,
     save_file_with_progress,
 )
@@ -58,6 +59,19 @@ def download_episode(
         else:
             filename = get_episode_filename(download_link)
             final_path = Path(download_path) / filename
+            content_length = response.headers.get("Content-Length")
+            expected_size = (
+                int(content_length)
+                if content_length is not None and content_length.isdecimal()
+                else None
+            )
+            if is_file_complete(final_path, expected_size):
+                response.close()
+                job_progress, task, overall_task = task_info
+                job_progress.update(task, completed=100, visible=False)
+                job_progress.advance(overall_task)
+                break
+
             save_file_with_progress(response, final_path, task_info)
             break
 
@@ -129,4 +143,7 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\nDownload interrupted by the user")

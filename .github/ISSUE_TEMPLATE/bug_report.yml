@@ -2,18 +2,18 @@ name: Bug report
 description: File a bug report
 title: "[BUG] <Enter a bug description here>"
 labels: [ "bug" ]
-assignees: [ Lysagxra ]
+assignees: [ NoveIX ]
 
 body:
   - id: thank-you
     type: markdown
-    
+
     attributes:
       value: Thanks for taking the time to fill out this bug report!
 
   - id: submission-guidelines
     type: markdown
-    
+
     attributes:
       value: |
         > [!IMPORTANT]
@@ -26,11 +26,11 @@ body:
         > Thank you for your understanding and cooperation :)
 
         You can download the latest version of the tool here:
-        https://github.com/Lysagxra/AnimeUnityDownloader/releases
+        https://github.com/NoveIX/AnimeUnityDownloader/releases
 
   - id: prechecks
     type: checkboxes
-    
+
     attributes:
       label: Steps to troubleshoot my issue
 
@@ -53,7 +53,7 @@ body:
 
   - id: operating-system
     type: dropdown
-    
+
     attributes:
       label: Operating system
       description: What operating system, version are you working with?
@@ -63,13 +63,13 @@ body:
         - Linux
         - macOS
         - Other (Please specify)
-    
+
     validations:
       required: true
-  
+
   - id: other-os
     type: input
-    
+
     attributes:
       label: Please specify your operating system
 
@@ -84,29 +84,29 @@ body:
 
   - id: python-version
     type: input
-    
+
     attributes:
       label: Python version
       description: What version of Python are you working with?
       placeholder: "Example: 3.13.3"
-    
+
     validations:
       required: true
-  
+
   - id: tool-version
     type: input
-    
+
     attributes:
       label: Tool version
       description: What version of the tool are you encountering this issue with?
       placeholder: "Example: Version 1.0.0"
-    
+
     validations:
       required: true
 
   - id: bug-description
     type: textarea
-    
+
     attributes:
       label: Describe the bug
 
@@ -118,13 +118,13 @@ body:
         2. The expected behavior.
         3. Provide an example URL that showcases it (if applicable).
         4. Add screenshots to help explain your problem (if applicable).
-    
+
     validations:
       required: true
-  
+
   - id: reproduce-steps
     type: textarea
-    
+
     attributes:
       label: Steps to help reproduce the behavior
 
@@ -135,38 +135,38 @@ body:
           1. Specify any configurations or settings involved.
           2. List any commands you ran or actions you took.
           3. Describe the error or issue you encountered.
-    
+
     validations:
       required: true
 
   - id: relevant-logs
     type: textarea
-    
+
     attributes:
       label: Relevant logs
-      
+
       description: >
         If you have an error log or stack trace, paste it here within backticks (```).
         Leave it blank otherwise.
-      
+
       placeholder: |
         Please copy the error log from your terminal and paste it here, formatted within backticks (```), like this:
         ```
         Insert your error log here...
         Insert your error log here...
         ```
-    
+
     validations:
       required: false
 
   - id: additional-context
     type: textarea
-    
+
     attributes:
       label: Additional context
 
       description: >
-        If you have any additional context, information, or references that could help us better understand or resolve the issue, 
+        If you have any additional context, information, or references that could help us better understand or resolve the issue,
         please provide them here. Leave it blank otherwise.
 
       placeholder: |
@@ -180,7 +180,7 @@ body:
 
   - id: contact-details
     type: input
-    
+
     attributes:
       label: Contact details
 

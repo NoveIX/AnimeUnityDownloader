@@ -2,18 +2,18 @@ name: Feature request
 description: Suggest an idea for this project
 title: "[FEATURE] <Enter a title for your feature here>"
 labels: [ "enhancement" ]
-assignees: [ Lysagxra ]
+assignees: [ NoveIX ]
 
 body:
   - id: thank-you
     type: markdown
-    
+
     attributes:
       value: Thanks for taking the time to fill out this feature request template!
 
   - id: submission-guidelines
     type: markdown
-    
+
     attributes:
       value: |
         > [!IMPORTANT]
@@ -26,7 +26,7 @@ body:
         > Thank you for your understanding and cooperation :)
 
         You can download the latest version of the tool here:
-        https://github.com/Lysagxra/AnimeUnityDownloader/releases
+        https://github.com/NoveIX/AnimeUnityDownloader/releases
 
   - id: feature-description
     type: textarea
@@ -35,10 +35,10 @@ body:
       label: Describe the feature you'd like
       description: A clear and concise description of what you want to happen.
       placeholder: "Example: I would like the tool to include an option for automatic updates."
-    
+
     validations:
       required: true
-      
+
   - id: problem-related
     type: textarea
 
@@ -55,11 +55,11 @@ body:
 
     attributes:
       label: Describe alternatives you've considered
-      
+
       description: >
         A clear and concise description of any alternative solutions or features you've considered.
         Leave it blank if you prefer not to provide one.
-      
+
       placeholder: "Example: I’ve tried using a script to automate updates, but it doesn’t always work properly"
 
     validations:
@@ -70,11 +70,11 @@ body:
 
     attributes:
       label: Additional context
-      
+
       description: >
         Add any other context or screenshots about the feature request here.
         Leave it blank if you prefer not to provide one.
-      
+
       placeholder: "Example: Here is a screenshot of the tool in action and how it could benefit from automatic updates."
 
     validations:
